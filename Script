@@ -2,13 +2,8 @@
 
 local wh = false
 local noclip = false
-local fov
 
 -- Functions
-
-while wait() do
-    workspace.CurrentCamera.FieldOfView = fov
-end
 
 workspace.ChildAdded:Connect(function(model)
 	task.wait(5)
@@ -68,9 +63,8 @@ mainSection:NewSlider("JumpHack", "Set your player JumpPower", 1000, 0, function
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
 end)
 
-mainSection:NewSlider("FOV", "Field of view, 120, 0, function(s)
+mainSection:NewSlider("FOV", "Field of view", 120, 0, function(s)
     workspace.CurrentCamera.FieldOfView = s
-    fov = s
 end)
 
 mainSection:NewToggle("WallHack", "You can see players through walls", function(state)
